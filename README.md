@@ -27,7 +27,7 @@ mvn archetype:generate\
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1-SNAPSHOT
+ -DarchetypeVersion=0.0.2-SNAPSHOT
 ```
 
 ### Example
@@ -37,7 +37,7 @@ $ mvn archetype:generate\
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1-SNAPSHOT\
+ -DarchetypeVersion=0.0.2-SNAPSHOT\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -56,10 +56,10 @@ $ mvn archetype:generate\
 [INFO] --- maven-archetype-plugin:2.4:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Batch mode
 [INFO] Archetype defined by properties
-[INFO] Downloading: https://oss.sonatype.org/content/repositories/snapshots/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1-SNAPSHOT/maven-metadata.xml
-[INFO] Downloaded: https://oss.sonatype.org/content/repositories/snapshots/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1-SNAPSHOT/maven-metadata.xml (2 KB at 0.1 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/snapshots/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.2-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/snapshots/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.2-SNAPSHOT/maven-metadata.xml (2 KB at 0.1 KB/sec)
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.0.1-SNAPSHOT
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.0.2-SNAPSHOT
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
