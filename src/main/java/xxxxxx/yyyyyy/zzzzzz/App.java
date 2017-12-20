@@ -27,7 +27,7 @@ public class App {
                 .orElse(8080);
         HttpServer httpServer = HttpServer.create("0.0.0.0", port);
         httpServer.startRouterAndAwait(routes -> routes.route(x -> true,
-                new ReactorHttpHandlerAdapter(toHttpHandler(App.routes()))), x -> {
+                new ReactorHttpHandlerAdapter(toHttpHandler(App.routes()))), context -> {
             long elapsed = System.currentTimeMillis() - begin;
             LoggerFactory.getLogger(App.class).info("Started in {} seconds", elapsed / 1000.0);
         });
