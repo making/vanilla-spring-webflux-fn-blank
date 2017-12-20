@@ -30,8 +30,7 @@
     <scm><!-- DELETE THIS LINE -->
         <url>https://github.com/making/vanilla-spring-webflux-fn-blank</url><!-- DELETE THIS LINE -->
         <connection>scm:git:git@github.com:making/vanilla-spring-webflux-fn-blank.git</connection><!-- DELETE THIS LINE -->
-        <developerConnection>scm:git:git@github.com:making/vanilla-spring-webflux-fn-blank.git
-        </developerConnection><!-- DELETE THIS LINE -->
+        <developerConnection>scm:git:git@github.com:making/vanilla-spring-webflux-fn-blank.git</developerConnection><!-- DELETE THIS LINE -->
     </scm><!-- DELETE THIS LINE -->
     <url>https://github.com/making/vanilla-spring-webflux-fn-blank</url><!-- DELETE THIS LINE -->
     <developers><!-- DELETE THIS LINE -->
