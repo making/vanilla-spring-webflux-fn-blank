@@ -4,7 +4,7 @@ Maven archetype to create a pre-configured maven project for Vanilla Spring WebF
 
 This app uses neither Spring Boot nor DI container (!!).
 
-Only Router Function is used.
+Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/web-reactive.html#webflux-fn) is used.
 
 ## Create a blank project using maven archetype
 
@@ -15,10 +15,11 @@ Only Router Function is used.
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1 \
- -DgroupId=com.example \
- -DartifactId=demo-fluxfn \
- -Dversion=1.0.0-SNAPSHOT
+ -DarchetypeVersion=0.0.1\
+ -DgroupId=com.example\
+ -DartifactId=demo-fluxfn\
+ -Dversion=1.0.0-SNAPSHOT\
+ -B
 ```
 
 
@@ -34,8 +35,13 @@ mvn archetype:generate\
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1-SNAPSHOT \
- -DgroupId=com.example \
- -DartifactId=demo-fluxfn \
- -Dversion=1.0.0-SNAPSHOT
+ -DarchetypeVersion=0.0.1-SNAPSHOT\
+ -DgroupId=com.example\
+ -DartifactId=demo-fluxfn\
+ -Dversion=1.0.0-SNAPSHOT\
+ -B
 ```
+
+## License
+
+Licensed under the Apache License, Version 2.0.
