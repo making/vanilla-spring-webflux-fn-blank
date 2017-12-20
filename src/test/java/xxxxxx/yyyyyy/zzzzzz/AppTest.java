@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.server.RouterFunction;
 
-public class AppTests {
+public class AppTest {
     private WebTestClient testClient;
 
     @Before
