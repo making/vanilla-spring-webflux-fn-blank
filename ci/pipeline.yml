@@ -5,11 +5,6 @@ resource_types:
   source:
     repository: cfcommunity/slack-notification-resource
     tag: v1.1.3
-- name: maven
-  type: docker-image
-  source:
-    repository: pivotalpa/maven-resource
-    tag: 1.3.4
 
 resources:
   - name: repo-master
@@ -94,7 +89,7 @@ jobs:
       GPG_PASSPHRASE: ((gpg-passphrase))
       ENCRYPTION_PASSWORD: ((gpg-encryption-password))
       GPG_DIR: .
-    config:
+    config: &MVN_DEPLOY_CONFIG
       platform: linux
       image_resource:
         type: docker-image
@@ -136,7 +131,7 @@ jobs:
             </servers>
           </settings>
           EOF
-          mvn deploy\
+          mvn deploy \
               -s settings.xml \
               -Dgpg.executable=gpg \
               -Dgpg.keyname=${GPG_KEYNAME} \
@@ -292,58 +287,7 @@ jobs:
       ENCRYPTION_PASSWORD: ((gpg-encryption-password))
       GPG_DIR: .
     config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: maven
-          tag: 3.3.9-jdk-8 # openssl 1.0.1 needed
-      inputs:
-      - name: repo
-      - name: gpg
-      outputs:
-      - name: signed
-      caches:
-      - path: repo/m2
-      run:
-        path: bash
-        args:
-        - -c
-        - |
-          set -e
-          mkdir -p ~/.gnupg
-          openssl version
-          gpg/deceypt-pgp.sh repo
-          cd repo
-          REPO_DIR=`pwd`
-          rm -rf ~/.m2
-          ln -fs $(pwd)/m2 ~/.m2
-
-          ./create-maven-archetype.sh
-          cd tmp/target/generated-sources/archetype
-
-          cat > settings.xml <<EOF
-          <settings>
-            <servers>
-              <server>
-                 <id>repo</id>
-                 <username>${SONATYPE_USERNAME}</username>
-                 <password>${SONATYPE_PASSWORD}</password>
-              </server>
-            </servers>
-          </settings>
-          EOF
-          mvn deploy \
-              -s settings.xml \
-              -Dgpg.executable=gpg \
-              -Dgpg.keyname=${GPG_KEYNAME} \
-              -Dgpg.passphrase=${GPG_PASSPHRASE} \
-              -Dgpg.defaultKeyring=false \
-              -Dgpg.publicKeyring=${REPO_DIR}/pubring.gpg \
-              -Dgpg.secretKeyring=${REPO_DIR}/secring.gpg \
-              -DserverId=repo \
-              -DautoReleaseAfterClose=true \
-              -DskipTests=true
+      <<: *MVN_DEPLOY_CONFIG
     on_failure:
       put: slack-alert
       params:
