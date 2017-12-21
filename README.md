@@ -116,6 +116,40 @@ $ curl localhost:8080
 Hello World!
 ```
 
+Following libraries will be included:
+
+```
+mvn dependency:list | grep ':compile' | sort
+[INFO]    ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO]    ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.9.2:compile
+[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.9.2:compile
+[INFO]    io.netty:netty-buffer:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-codec-http:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-codec-socks:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-codec:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-common:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-handler-proxy:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-handler:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-resolver:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.17.Final:compile
+[INFO]    io.netty:netty-transport:jar:4.1.17.Final:compile
+[INFO]    io.projectreactor.ipc:reactor-netty:jar:0.7.2.RELEASE:compile
+[INFO]    io.projectreactor:reactor-core:jar:3.1.2.RELEASE:compile
+[INFO]    org.reactivestreams:reactive-streams:jar:1.0.1:compile
+[INFO]    org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO]    org.springframework:spring-aop:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-beans:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-context:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-core:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-expression:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-jcl:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-web:jar:5.0.2.RELEASE:compile
+[INFO]    org.springframework:spring-webflux:jar:5.0.2.RELEASE:compile
+```
+
 ## License
 
 Licensed under the Apache License, Version 2.0.
