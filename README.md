@@ -150,6 +150,15 @@ $ mvn dependency:list | grep ':compile' | sort
 [INFO]    org.springframework:spring-webflux:jar:5.0.2.RELEASE:compile
 ```
 
+Configure memory size as below:
+
+```
+JAVA_OPTS="-Xmx16M -Xss1M -XX:MaxMetaspaceSize=32M -XX:ReservedCodeCacheSize=32M -XX:CompressedClassSpaceSize=8M -XX:MaxDirectMemorySize=8M"
+java $JAVA_OPTS -jar 
+```
+
+This will actually run.
+
 ### Deploy to Cloud Foundry
 
 To make best use of small footprint, you can configure [Java Memory Calculator](https://github.com/cloudfoundry/java-buildpack-memory-calculator)
