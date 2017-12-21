@@ -25,3 +25,4 @@ nbdist/
 
 tmp
 *credentials.yml
+version
