@@ -28,7 +28,7 @@ resources:
     type: semver
     source:
       uri: git@github.com:making/vanilla-spring-webflux-fn-blank.git
-      branch: master
+      branch: version
       private_key: ((github-private-key))
       file: version
       driver: git
