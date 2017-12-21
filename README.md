@@ -173,7 +173,7 @@ Be careful that this configuration is well tuned for a tiny "Hello World" applic
 ```
 $ mvn clean package
 $ java -jar target/demo-fluxfn-1.0.0-SNAPSHOT.jar
-$ cf push --random-route
+$ cf push
   Using manifest file /private/tmp/demo-fluxfn/demo-fluxfn/manifest.yml
   
   Updating app fluxfn in org myorg / space development as maki@example.com...
