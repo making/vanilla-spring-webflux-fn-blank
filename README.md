@@ -16,7 +16,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1
+ -DarchetypeVersion=0.0.3
 ```
 
 
@@ -27,7 +27,7 @@ mvn archetype:generate\
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.2-SNAPSHOT
+ -DarchetypeVersion=0.0.4-SNAPSHOT
 ```
 
 ### Example
@@ -36,7 +36,7 @@ mvn archetype:generate\
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.1\
+ -DarchetypeVersion=0.0.3\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -56,12 +56,12 @@ $ mvn archetype:generate\
 [INFO] Generating project in Batch mode
 [WARNING] Archetype not found in any catalog. Falling back to central repository (http://repo.maven.apache.org/maven2).
 [WARNING] Use -DarchetypeRepository=<your repository> if archetype's repository is elsewhere.
-[INFO] Downloading: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1/vanilla-spring-webflux-fn-blank-archetype-0.0.1.jar
-[INFO] Downloaded: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1/vanilla-spring-webflux-fn-blank-archetype-0.0.1.jar (4 KB at 6.4 KB/sec)
-[INFO] Downloading: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1/vanilla-spring-webflux-fn-blank-archetype-0.0.1.pom
-[INFO] Downloaded: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.1/vanilla-spring-webflux-fn-blank-archetype-0.0.1.pom (3 KB at 5.7 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.3/vanilla-spring-webflux-fn-blank-archetype-0.0.3.jar
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.3/vanilla-spring-webflux-fn-blank-archetype-0.0.3.jar (4 KB at 6.5 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.3/vanilla-spring-webflux-fn-blank-archetype-0.0.3.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.0.3/vanilla-spring-webflux-fn-blank-archetype-0.0.3.pom (3 KB at 6.8 KB/sec)
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.0.1
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.0.3
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
@@ -76,9 +76,9 @@ $ mvn archetype:generate\
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 50.408 s
-[INFO] Finished at: 2017-12-21T10:53:34+09:00
-[INFO] Final Memory: 14M/222M
+[INFO] Total time: 14.045 s
+[INFO] Finished at: 2017-12-21T15:50:02+09:00
+[INFO] Final Memory: 13M/180M
 [INFO] ------------------------------------------------------------------------
 
 $ tree demo-fluxfn
@@ -119,7 +119,7 @@ Hello World!
 Following libraries will be included:
 
 ```
-mvn dependency:list | grep ':compile' | sort
+$ mvn dependency:list | grep ':compile' | sort
 [INFO]    ch.qos.logback:logback-classic:jar:1.2.3:compile
 [INFO]    ch.qos.logback:logback-core:jar:1.2.3:compile
 [INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
