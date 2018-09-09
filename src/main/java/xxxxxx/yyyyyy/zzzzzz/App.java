@@ -8,8 +8,9 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
-import reactor.ipc.netty.http.server.HttpServer;
+import reactor.netty.http.server.HttpServer;
 
+import java.time.Duration;
 import java.util.Optional;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
@@ -27,13 +28,15 @@ public class App {
         int port = Optional.ofNullable(System.getenv("PORT")) //
                 .map(Integer::parseInt) //
                 .orElse(8080);
-        HttpServer httpServer = HttpServer.create("0.0.0.0", port);
-        httpServer.startRouterAndAwait(routes -> {
-            HttpHandler httpHandler = RouterFunctions.toHttpHandler(App.routes(), HandlerStrategies.builder().build());
+        HttpServer httpServer = HttpServer.create().host("0.0.0.0").port(port);
+        httpServer.route(routes -> {
+            HttpHandler httpHandler = RouterFunctions.toHttpHandler(
+                    App.routes(), HandlerStrategies.builder().build());
             routes.route(x -> true, new ReactorHttpHandlerAdapter(httpHandler));
-        }, context -> {
+        }).bindUntilJavaShutdown(Duration.ofSeconds(3), disposableServer -> {
             long elapsed = System.currentTimeMillis() - begin;
-            LoggerFactory.getLogger(App.class).info("Started in {} seconds", elapsed / 1000.0);
+            LoggerFactory.getLogger(App.class).info("Started in {} seconds",
+                    elapsed / 1000.0);
         });
     }
 }
