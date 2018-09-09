@@ -27,7 +27,7 @@ mvn archetype:generate\
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.0.4-SNAPSHOT
+ -DarchetypeVersion=0.1.0-SNAPSHOT
 ```
 
 ### Example
