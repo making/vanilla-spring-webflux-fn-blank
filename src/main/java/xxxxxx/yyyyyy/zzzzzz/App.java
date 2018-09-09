@@ -1,5 +1,6 @@
 package xxxxxx.yyyyyy.zzzzzz;
 
+import am.ik.yavi.core.ConstraintViolations;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
@@ -14,13 +15,19 @@ import java.time.Duration;
 import java.util.Optional;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+import static org.springframework.web.reactive.function.server.ServerResponse.badRequest;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 public class App {
 
     static RouterFunction<ServerResponse> routes() {
-        return route(GET("/"), req -> ok().body(Flux.just("Hello", " ", "World!"), String.class));
+        return route(GET("/"), req -> ok().body(Flux.just("Hello", " ", "World!"), String.class))
+                .andRoute(POST("/messages"), req -> req.bodyToMono(Message.class)
+                        .flatMap(b -> Message.validator.validateToEither(b)
+                                .leftMap(ConstraintViolations::details)
+                                .fold(v -> badRequest().syncBody(v), body -> ok().syncBody(body))));
     }
 
     public static void main(String[] args) throws Exception {
