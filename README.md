@@ -10,7 +10,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 
 ### How to use
 
-#### Use Release version
+#### Use Release version (Spring 5.0)
 
 ```
 mvn archetype:generate\
@@ -20,7 +20,7 @@ mvn archetype:generate\
 ```
 
 
-#### Use Snapshot version
+#### Use Snapshot version (Spring 5.1)
 
 ```
 mvn archetype:generate\
