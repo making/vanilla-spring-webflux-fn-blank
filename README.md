@@ -10,7 +10,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 
 ### How to use
 
-#### Use Release version (Spring 5.0)
+#### Use Spring 5.0.x
 
 ```
 mvn archetype:generate\
@@ -19,15 +19,13 @@ mvn archetype:generate\
  -DarchetypeVersion=0.0.8
 ```
 
-
-#### Use Snapshot version (Spring 5.1)
+#### Use Spring 5.1.x
 
 ```
 mvn archetype:generate\
- -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.1.0-SNAPSHOT
+ -DarchetypeVersion=0.1.0
 ```
 
 ### Example
