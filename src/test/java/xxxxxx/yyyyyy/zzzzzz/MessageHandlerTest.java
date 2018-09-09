@@ -4,26 +4,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.web.reactive.function.server.RouterFunction;
 
 import static org.hamcrest.Matchers.is;
 
-public class AppTest {
+public class MessageHandlerTest {
     private WebTestClient testClient;
 
     @Before
     public void setUp() throws Exception {
-        RouterFunction<?> routes = App.routes();
-        this.testClient = WebTestClient.bindToRouterFunction(routes).build();
-    }
-
-    @Test
-    public void testHello() throws Exception {
-        this.testClient.get()
-                .uri("/") //
-                .exchange() //
-                .expectStatus().isOk() //
-                .expectBody(String.class).isEqualTo("Hello World!");
+        this.testClient = WebTestClient.bindToRouterFunction(new MessageHandler().routes()).build();
     }
 
     @Test
@@ -34,6 +23,12 @@ public class AppTest {
                 .exchange() //
                 .expectStatus().isOk() //
                 .expectBody(String.class).isEqualTo("{\"text\":\"Hello\"}");
+
+        this.testClient.get()
+                .uri("/messages") //
+                .exchange() //
+                .expectStatus().isOk() //
+                .expectBody(String.class).isEqualTo("[{\"text\":\"Hello\"}]");
     }
 
 
