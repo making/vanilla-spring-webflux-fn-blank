@@ -9,8 +9,6 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.badRequest;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
@@ -20,8 +18,10 @@ public class MessageHandler {
 
 
     public RouterFunction<ServerResponse> routes() {
-        return route(GET("/messages"), this::getMessages)
-                .andRoute(POST("/messages"), this::postMessage);
+        return route()
+                .GET("/messages", this::getMessages)
+                .POST("/messages", this::postMessage)
+                .build();
     }
 
     Mono<ServerResponse> getMessages(ServerRequest req) {

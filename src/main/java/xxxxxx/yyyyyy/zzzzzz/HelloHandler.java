@@ -6,13 +6,14 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 public class HelloHandler {
     public RouterFunction<ServerResponse> routes() {
-        return route(GET("/"), this::hello);
+        return route()
+                .GET("/", this::hello)
+                .build();
     }
 
     Mono<ServerResponse> hello(ServerRequest req) {
