@@ -159,12 +159,12 @@
                     <plugin>
                         <groupId>com.oracle.substratevm</groupId>
                         <artifactId>native-image-maven-plugin</artifactId>
-                        <version>1.0.0-rc15</version>
+                        <version>${graal.version}</version>
                         <dependencies>
                             <dependency>
                                 <groupId>com.oracle.substratevm</groupId>
                                 <artifactId>svm</artifactId>
-                                <version>1.0.0-rc15</version>
+                                <version>${graal.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>
@@ -178,7 +178,7 @@
                         <configuration>
                             <mainClass>${start-class}</mainClass>
                             <detail>true</detail>
-                            <imageName>${artifactId}</imageName>
+                            <imageName>${project.artifactId}</imageName>
                             <outputDirectory>${basedir}/target/classes</outputDirectory>
                         </configuration>
                     </plugin>
