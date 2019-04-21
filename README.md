@@ -395,18 +395,8 @@ Warning: RecomputeFieldValue.ArrayIndexScale automatic substitution failed. The 
 [INFO] Finished at: 2019-04-22T04:26:31+09:00
 [INFO] Final Memory: 31M/255M
 [INFO] ------------------------------------------------------------------------
-(/tmp/demo-fluxfn) $ ll
-total 16
-drwxr-xr-x   5 maki  wheel   160B  4 22 04:25 .
-drwxrwxrwt  18 root  wheel   576B  4 22 04:22 ..
--rw-r--r--   1 maki  wheel   7.1K  4 22 04:22 pom.xml
-drwxr-xr-x   4 maki  wheel   128B  4 22 04:22 src
-drwxr-xr-x   9 maki  wheel   288B  4 22 04:25 target
-(/tmp/demo-fluxfn) $ ./target/
-classes/                generated-sources/      generated-test-sources/ maven-archiver/         maven-status/           test-classes/           
-(/tmp/demo-fluxfn) $ ./target/classes/
-META-INF/    com/         demo-fluxfn  
-(/tmp/demo-fluxfn) $ ./target/classes/demo-fluxfn 
+
+$ ./target/classes/demo-fluxfn 
 2019-04-22 04:26:42.270  INFO --- [           main] com.example.App                          : Started in 0.003 seconds
 ```
 
