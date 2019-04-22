@@ -25,7 +25,7 @@ mvn archetype:generate\
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.0
+ -DarchetypeVersion=0.2.1
 ```
 
 ### Example
@@ -294,7 +294,7 @@ $ cf push
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.0\
+ -DarchetypeVersion=0.2.1\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
