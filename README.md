@@ -411,6 +411,28 @@ $ curl localhost:8080/messages -w "\n"
 [{"text":"Hello"}]
 ```
 
+#### Deploy to Cloud Foundry
+
+Build a image for Linux with Docker
+
+```
+mvn -N io.takari:maven:wrapper
+docker run --rm \
+           -v "$PWD":/usr/src \
+           -v "$HOME/.m2":/root/.m2 \
+           -w /usr/src \
+           oracle/graalvm-ce:1.0.0-rc15 \
+           ./mvnw package -Pgraal
+```
+
+and `cf push`
+
+```
+mkdir -p build
+cp target/classes/demo-fluxfn ./build/
+cf push demo-fluxfn --random-route -m 160m -b binary_buildpack -p ./build -c './demo-fluxfn'
+```
+
 ## License
 
 Licensed under the Apache License, Version 2.0.
