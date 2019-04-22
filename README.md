@@ -430,7 +430,7 @@ and `cf push`
 ```
 mkdir -p build
 cp target/classes/demo-fluxfn ./build/
-cf push demo-fluxfn --random-route -m 160m -b binary_buildpack -p ./build -c './demo-fluxfn'
+cf push demo-fluxfn --random-route -m 200m -b binary_buildpack -p ./build -c './demo-fluxfn'
 ```
 
 ## License
