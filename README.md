@@ -309,6 +309,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 ```
 
 ```
+$ cd demo-fluxfn
 $ mvn clean package -DskipTests=true -Pgraal
 [INFO] Scanning for projects...
 [INFO] 
@@ -431,6 +432,61 @@ and `cf push`
 mkdir -p build
 cp target/classes/demo-fluxfn ./build/
 cf push demo-fluxfn --random-route -m 200m -b binary_buildpack -p ./build -c './demo-fluxfn'
+```
+
+```
+Pushing app demo-fluxfn to org myorg / space development as maki@example.com...
+Getting app info...
+Creating app with these attributes...
++ name:         demo-fluxfn
+  path:         /private/tmp/demo-fluxfn/build
+  buildpacks:
++   binary_buildpack
++ command:      ./demo-fluxfn
++ memory:       200M
+  routes:
++   demo-fluxfn-generous-meerkat.cfapps.io
+
+Creating app demo-fluxfn...
+Mapping routes...
+Comparing local files to remote cache...
+All files found in remote cache; nothing to upload.
+Waiting for API to complete processing files...
+
+Staging app and tracing logs...
+   Downloading binary_buildpack...
+   Downloaded binary_buildpack
+   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c creating container for instance df047713-152b-46f6-a146-cb5c163652eb
+   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c successfully created container for instance df047713-152b-46f6-a146-cb5c163652eb
+   Downloading app package...
+   Downloaded app package (8.5M)
+   -----> Binary Buildpack version 1.0.31
+   Exit status 0
+   Uploading droplet, build artifacts cache...
+   Uploading build artifacts cache...
+   Uploading droplet...
+   Uploaded build artifacts cache (213B)
+   Uploaded droplet (8.5M)
+   Uploading complete
+   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c stopping instance df047713-152b-46f6-a146-cb5c163652eb
+   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c destroying container for instance df047713-152b-46f6-a146-cb5c163652eb
+   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c successfully destroyed container for instance df047713-152b-46f6-a146-cb5c163652eb
+
+Waiting for app to start...
+
+name:              demo-fluxfn
+requested state:   started
+routes:            demo-fluxfn-generous-meerkat.cfapps.io
+last uploaded:     Tue 23 Apr 03:06:19 JST 2019
+stack:             cflinuxfs3
+buildpacks:        binary
+
+type:            web
+instances:       1/1
+memory usage:    200M
+start command:   ./demo-fluxfn
+     state     since                  cpu    memory      disk      details
+#0   running   2019-04-22T18:06:29Z   0.0%   0 of 200M   0 of 1G   
 ```
 
 ## License
