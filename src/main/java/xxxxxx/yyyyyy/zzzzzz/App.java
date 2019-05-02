@@ -24,12 +24,10 @@ public class App {
         int port = Optional.ofNullable(System.getenv("PORT")) //
                 .map(Integer::parseInt) //
                 .orElse(8080);
-        HttpServer httpServer = HttpServer.create().host("0.0.0.0").port(port);
-        httpServer.route(routes -> {
-            HttpHandler httpHandler = RouterFunctions.toHttpHandler(
-                    App.routes(), HandlerStrategies.builder().build());
-            routes.route(x -> true, new ReactorHttpHandlerAdapter(httpHandler));
-        }).bindUntilJavaShutdown(Duration.ofSeconds(3), disposableServer -> {
+
+        HttpHandler httpHandler = RouterFunctions.toHttpHandler(App.routes(), HandlerStrategies.builder().build());
+        HttpServer httpServer = HttpServer.create().host("0.0.0.0").port(port).handle(new ReactorHttpHandlerAdapter(httpHandler));
+        httpServer.bindUntilJavaShutdown(Duration.ofSeconds(3), disposableServer -> {
             long elapsed = System.currentTimeMillis() - begin;
             LoggerFactory.getLogger(App.class).info("Started in {} seconds",
                     elapsed / 1000.0);
