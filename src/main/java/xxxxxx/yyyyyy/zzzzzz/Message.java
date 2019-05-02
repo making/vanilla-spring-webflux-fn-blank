@@ -1,33 +1,33 @@
 package xxxxxx.yyyyyy.zzzzzz;
 
-import am.ik.yavi.core.Validator;
-
 import java.io.Serializable;
 
+import am.ik.yavi.core.Validator;
+
 public class Message implements Serializable {
-    private String text;
+	public static Validator<Message> validator = Validator.builder(Message.class)
+			.constraint(Message::getText, "text", c -> c.notBlank().lessThanOrEqual(8))
+			.build();
 
-    Message() {
-    }
+	private String text;
 
-    public Message(String text) {
-        this.text = text;
-    }
+	public Message(String text) {
+		this.text = text;
+	}
 
-    public String getText() {
-        return text;
-    }
+	Message() {
+	}
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	public String getText() {
+		return text;
+	}
 
-    @Override
-    public String toString() {
-        return this.text;
-    }
+	public void setText(String text) {
+		this.text = text;
+	}
 
-    public static Validator<Message> validator = Validator.builder(Message.class)
-            .constraint(Message::getText, "text", c -> c.notBlank().lessThanOrEqual(8))
-            .build();
+	@Override
+	public String toString() {
+		return this.text;
+	}
 }

@@ -1,7 +1,7 @@
 [
   {
     "name": "xxxxxx.yyyyyy.zzzzzz.Message",
-    "allDeclaredConstructors" : true,
+    "allDeclaredConstructors": true,
     "allDeclaredMethods": true
   }
 ]
