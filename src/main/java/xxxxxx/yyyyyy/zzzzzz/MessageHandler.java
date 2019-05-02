@@ -18,8 +18,10 @@ public class MessageHandler {
 	private final List<Message> messages = new CopyOnWriteArrayList<>();
 
 	public RouterFunction<ServerResponse> routes() {
-		return route().GET("/messages", this::getMessages)
-				.POST("/messages", this::postMessage).build();
+		return route() //
+				.GET("/messages", this::getMessages) //
+				.POST("/messages", this::postMessage) //
+				.build();
 	}
 
 	Mono<ServerResponse> getMessages(ServerRequest req) {

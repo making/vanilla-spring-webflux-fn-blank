@@ -12,7 +12,9 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 
 public class HelloHandler {
 	public RouterFunction<ServerResponse> routes() {
-		return route().GET("/", this::hello).build();
+		return route() //
+				.GET("/", this::hello) //
+				.build();
 	}
 
 	Mono<ServerResponse> hello(ServerRequest req) {
