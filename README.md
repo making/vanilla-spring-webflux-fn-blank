@@ -252,37 +252,42 @@ $ cf push
 ### How to use `ApplicationContext`
 
 ``` diff
---- src/main/java/com/example/App.java	(date 1513823988000)
-+++ src/main/java/com/example/App.java	(revision )
-@@ -1,11 +1,15 @@
- package com.example;
- 
+diff --git a/src/main/java/com/example/App.java b/src/main/java/com/example/App.java
+index 784b593..2f16b86 100644
+--- a/src/main/java/com/example/App.java
++++ b/src/main/java/com/example/App.java
+@@ -6,12 +6,14 @@ import java.util.Optional;
  import org.slf4j.LoggerFactory;
-+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+ import reactor.netty.http.server.HttpServer;
+ 
 +import org.springframework.context.support.GenericApplicationContext;
  import org.springframework.http.server.reactive.HttpHandler;
  import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
+-import org.springframework.web.reactive.function.server.HandlerStrategies;
  import org.springframework.web.reactive.function.server.RouterFunction;
  import org.springframework.web.reactive.function.server.RouterFunctions;
  import org.springframework.web.reactive.function.server.ServerResponse;
 +import org.springframework.web.server.WebHandler;
 +import org.springframework.web.server.adapter.WebHttpHandlerBuilder;
- import reactor.core.publisher.Flux;
- import reactor.ipc.netty.http.server.HttpServer;
  
-@@ -28,7 +32,11 @@
-                 .orElse(8080);
-         HttpServer httpServer = HttpServer.create("0.0.0.0", port);
-         httpServer.startRouterAndAwait(routes -> {
--            HttpHandler httpHandler = RouterFunctions.toHttpHandler(App.routes());
-+            GenericApplicationContext context = new AnnotationConfigApplicationContext();
-+            context.registerBean(WebHandler.class, () -> RouterFunctions.toWebHandler(App.routes()));
-+            context.refresh();
-+            context.registerShutdownHook();
-+            HttpHandler httpHandler = WebHttpHandlerBuilder.applicationContext(context).build();
-             routes.route(x -> true, new ReactorHttpHandlerAdapter(httpHandler));
-         }, context -> {
-             long elapsed = System.currentTimeMillis() - begin;
+ public class App {
+ 
+@@ -21,8 +23,13 @@ public class App {
+ 				.map(Integer::parseInt) //
+ 				.orElse(8080);
+ 
+-		HttpHandler httpHandler = RouterFunctions.toHttpHandler(App.routes(),
+-				HandlerStrategies.builder().build());
++		GenericApplicationContext context = new GenericApplicationContext();
++		context.registerBean("webHandler", WebHandler.class,
++				() -> RouterFunctions.toWebHandler(App.routes()));
++		context.refresh();
++		context.registerShutdownHook();
++		HttpHandler httpHandler = WebHttpHandlerBuilder.applicationContext(context)
++				.build();
+ 		HttpServer httpServer = HttpServer.create().host("0.0.0.0").port(port)
+ 				.handle(new ReactorHttpHandlerAdapter(httpHandler));
+ 		httpServer.bindUntilJavaShutdown(Duration.ofSeconds(3), disposableServer -> {
 ```
 
 
