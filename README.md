@@ -338,10 +338,11 @@ $ mvn clean package -DskipTests=true -Pgraal
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-fluxfn ---
+[INFO] Deleting /private/tmp/demo-fluxfn/target
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ demo-fluxfn ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 5 resources
+[INFO] Copying 6 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ demo-fluxfn ---
 [INFO] Changes detected - recompiling the module!
@@ -392,33 +393,33 @@ $ mvn clean package -DskipTests=true -Pgraal
 [INFO] ImageClasspath Entry: am.ik.yavi:yavi:jar:0.0.23:compile (file:///Users/maki/.m2/repository/am/ik/yavi/yavi/0.0.23/yavi-0.0.23.jar)
 [INFO] ImageClasspath Entry: com.example:demo-fluxfn:jar:1.0.0-SNAPSHOT (file:///private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar)
 [INFO] Executing: /Library/Java/JavaVirtualMachines/graalvm-ce-1.0.0-rc15/Contents/Home/jre/bin/native-image -cp /Users/maki/.m2/repository/org/springframework/spring-context/5.2.0.M1/spring-context-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-aop/5.2.0.M1/spring-aop-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-beans/5.2.0.M1/spring-beans-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-core/5.2.0.M1/spring-core-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-jcl/5.2.0.M1/spring-jcl-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-expression/5.2.0.M1/spring-expression-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-webflux/5.2.0.M1/spring-webflux-5.2.0.M1.jar:/Users/maki/.m2/repository/io/projectreactor/reactor-core/3.2.8.RELEASE/reactor-core-3.2.8.RELEASE.jar:/Users/maki/.m2/repository/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar:/Users/maki/.m2/repository/org/springframework/spring-web/5.2.0.M1/spring-web-5.2.0.M1.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/maki/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/Users/maki/.m2/repository/io/projectreactor/netty/reactor-netty/0.8.6.RELEASE/reactor-netty-0.8.6.RELEASE.jar:/Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.34.Final/netty-codec-http-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-common/4.1.34.Final/netty-common-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-buffer/4.1.34.Final/netty-buffer-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-transport/4.1.34.Final/netty-transport-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-resolver/4.1.34.Final/netty-resolver-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec/4.1.34.Final/netty-codec-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec-http2/4.1.34.Final/netty-codec-http2-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler/4.1.34.Final/netty-handler-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler-proxy/4.1.34.Final/netty-handler-proxy-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec-socks/4.1.34.Final/netty-codec-socks-4.1.34.Final.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.8/jackson-databind-2.9.8.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar:/Users/maki/.m2/repository/am/ik/yavi/yavi/0.0.23/yavi-0.0.23.jar:/private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar -H:Class=com.example.App -H:Name=demo-fluxfn
-Build on Server(pid: 73537, port: 53385)
-[demo-fluxfn:73537]    classlist:   4,358.50 ms
-[demo-fluxfn:73537]        (cap):   1,449.27 ms
-[demo-fluxfn:73537]        setup:   1,977.40 ms
+Build on Server(pid: 87240, port: 58915)*
+[demo-fluxfn:87240]    classlist:   4,369.74 ms
+[demo-fluxfn:87240]        (cap):   1,607.49 ms
+[demo-fluxfn:87240]        setup:   2,859.84 ms
 Warning: RecomputeFieldValue.ArrayIndexScale automatic substitution failed. The automatic substitution registration was attempted because a call to sun.misc.Unsafe.arrayIndexScale(Class) was detected in the static initializer of io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess. Detailed failure reason(s): Could not determine the field where the value produced by the call to sun.misc.Unsafe.arrayIndexScale(Class) for the array index scale computation is stored. The call is not directly followed by a field store or by a sign extend node followed directly by a field store. 
-[demo-fluxfn:73537]   (typeflow):  13,486.05 ms
-[demo-fluxfn:73537]    (objects):  12,280.38 ms
-[demo-fluxfn:73537]   (features):     896.06 ms
-[demo-fluxfn:73537]     analysis:  27,444.93 ms
-[demo-fluxfn:73537]     universe:   1,307.39 ms
-[demo-fluxfn:73537]      (parse):   1,066.48 ms
-[demo-fluxfn:73537]     (inline):   3,913.27 ms
-[demo-fluxfn:73537]    (compile):  19,510.88 ms
-[demo-fluxfn:73537]      compile:  25,933.72 ms
-[demo-fluxfn:73537]        image:   3,340.46 ms
-[demo-fluxfn:73537]        write:   1,059.65 ms
-[demo-fluxfn:73537]      [total]:  65,524.56 ms
+[demo-fluxfn:87240]   (typeflow):  13,664.99 ms
+[demo-fluxfn:87240]    (objects):  12,975.54 ms
+[demo-fluxfn:87240]   (features):     798.34 ms
+[demo-fluxfn:87240]     analysis:  28,747.24 ms
+[demo-fluxfn:87240]     universe:   1,023.64 ms
+[demo-fluxfn:87240]      (parse):   2,913.02 ms
+[demo-fluxfn:87240]     (inline):   4,572.16 ms
+[demo-fluxfn:87240]    (compile):  19,382.14 ms
+[demo-fluxfn:87240]      compile:  28,609.05 ms
+[demo-fluxfn:87240]        image:   2,425.67 ms
+[demo-fluxfn:87240]        write:   1,055.92 ms
+[demo-fluxfn:87240]      [total]:  69,419.11 ms
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:11 min
-[INFO] Finished at: 2019-04-22T04:26:31+09:00
-[INFO] Final Memory: 31M/255M
+[INFO] Total time: 01:13 min
+[INFO] Finished at: 2019-05-03T11:14:44+09:00
+[INFO] Final Memory: 32M/308M
 [INFO] ------------------------------------------------------------------------
 
 $ ./target/classes/demo-fluxfn 
-2019-04-22 04:26:42.270  INFO --- [           main] com.example.App                          : Started in 0.003 seconds
+2019-05-03 11:15:20.911  INFO --- [           main] com.example.App                          : Started in 0.003 seconds
 ```
 
 ```
