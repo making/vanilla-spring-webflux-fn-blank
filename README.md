@@ -10,15 +10,6 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 
 ### How to use
 
-#### Use Spring 5.1.x
-
-```
-mvn archetype:generate\
- -DarchetypeGroupId=am.ik.archetype\
- -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.1.4
-```
-
 #### Use Spring 5.2.x
 
 ```
@@ -28,13 +19,22 @@ mvn archetype:generate\
  -DarchetypeVersion=0.2.3
 ```
 
+#### Use Spring 5.1.x
+
+```
+mvn archetype:generate\
+ -DarchetypeGroupId=am.ik.archetype\
+ -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
+ -DarchetypeVersion=0.1.4
+```
+
 ### Example
 
 ```
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.1.4\
+ -DarchetypeVersion=0.2.3\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -53,13 +53,13 @@ $ mvn archetype:generate\
 [INFO] 
 [INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Batch mode
-[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.1.4] found in catalog remote
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.1.4/vanilla-spring-webflux-fn-blank-archetype-0.1.4.pom
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.1.4/vanilla-spring-webflux-fn-blank-archetype-0.1.4.pom (2.7 kB at 5.9 kB/s)
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.1.4/vanilla-spring-webflux-fn-blank-archetype-0.1.4.jar
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.1.4/vanilla-spring-webflux-fn-blank-archetype-0.1.4.jar (6.0 kB at 14 kB/s)
+[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.2] found in catalog remote
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.3/vanilla-spring-webflux-fn-blank-archetype-0.2.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.3/vanilla-spring-webflux-fn-blank-archetype-0.2.3.pom (2.7 kB at 8.0 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.3/vanilla-spring-webflux-fn-blank-archetype-0.2.3.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.3/vanilla-spring-webflux-fn-blank-archetype-0.2.3.jar (8.8 kB at 27 kB/s)
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.1.4
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.3
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
@@ -67,16 +67,22 @@ $ mvn archetype:generate\
 [INFO] Parameter: package, Value: com.example
 [INFO] Parameter: packageInPathFormat, Value: com/example
 [INFO] Parameter: package, Value: com.example
-[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
+[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/logback.xml
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/yavi.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/native-image.properties
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/netty.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/app.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/framework.json
 [INFO] Project created from Archetype in dir: /private/tmp/demo-fluxfn
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.617 s
-[INFO] Finished at: 2018-10-04T23:25:50+09:00
-[INFO] Final Memory: 15M/218M
+[INFO] Total time: 5.795 s
+[INFO] Finished at: 2019-05-03T11:09:18+09:00
+[INFO] Final Memory: 15M/64M
 [INFO] ------------------------------------------------------------------------
 
 $ tree demo-fluxfn
@@ -92,6 +98,15 @@ demo-fluxfn
     │   │           ├── Message.java
     │   │           └── MessageHandler.java
     │   └── resources
+    │       ├── META-INF
+    │       │   └── native-image
+    │       │       └── com.example
+    │       │           └── demo-fluxfn
+    │       │               ├── app.json
+    │       │               ├── framework.json
+    │       │               ├── native-image.properties
+    │       │               ├── netty.json
+    │       │               └── yavi.json
     │       └── logback.xml
     └── test
         └── java
@@ -100,7 +115,7 @@ demo-fluxfn
                     ├── HelloHandlerTest.java
                     └── MessageHandlerTest.java
 
-10 directories, 8 files
+14 directories, 13 files
 ```
 
 
@@ -109,7 +124,7 @@ demo-fluxfn
 $ cd demo-fluxfn
 $ mvn clean package
 $ java -jar target/demo-fluxfn-1.0.0-SNAPSHOT.jar 
-2019-04-21 22:55:31.204  INFO --- [           main] com.example.App                          : Started in 0.732 seconds
+2019-05-03 11:11:47.902  INFO --- [           main] com.example.App                          : Started in 0.693 seconds
 ```
 
 ```
@@ -136,21 +151,21 @@ $ mvn dependency:list | grep ':compile' | sort
 [INFO]    io.netty:netty-handler-proxy:jar:4.1.34.Final:compile
 [INFO]    io.netty:netty-handler:jar:4.1.34.Final:compile
 [INFO]    io.netty:netty-resolver:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.34.Final:compile
+[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.34.Final:compile
 [INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.34.Final:compile
 [INFO]    io.netty:netty-transport:jar:4.1.34.Final:compile
 [INFO]    io.projectreactor.netty:reactor-netty:jar:0.8.6.RELEASE:compile
 [INFO]    io.projectreactor:reactor-core:jar:3.2.8.RELEASE:compile
 [INFO]    org.reactivestreams:reactive-streams:jar:1.0.2:compile
 [INFO]    org.slf4j:slf4j-api:jar:1.7.26:compile
-[INFO]    org.springframework:spring-aop:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-beans:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-context:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-core:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-expression:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-jcl:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-web:jar:5.1.6.RELEASE:compile
-[INFO]    org.springframework:spring-webflux:jar:5.1.6.RELEASE:compile
+[INFO]    org.springframework:spring-aop:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-beans:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-context:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-core:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-expression:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-jcl:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-web:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-webflux:jar:5.2.0.M1:compile
 ```
 
 Configure memory size as below:
