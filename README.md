@@ -305,6 +305,7 @@ index 784b593..2f16b86 100644
  		httpServer.bindUntilJavaShutdown(Duration.ofSeconds(3), disposableServer -> {
 ```
 
+See also [Functional Spring Cookbook](https://github.com/making/functional-spring-cookbook)
 
 ### GraalVM support
 
