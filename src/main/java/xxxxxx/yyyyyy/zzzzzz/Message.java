@@ -2,10 +2,11 @@ package xxxxxx.yyyyyy.zzzzzz;
 
 import java.io.Serializable;
 
+import am.ik.yavi.builder.ValidatorBuilder;
 import am.ik.yavi.core.Validator;
 
 public class Message implements Serializable {
-	public static Validator<Message> validator = Validator.builder(Message.class)
+	public static Validator<Message> validator = ValidatorBuilder.of(Message.class)
 			.constraint(Message::getText, "text", c -> c.notBlank().lessThanOrEqual(8))
 			.build();
 
