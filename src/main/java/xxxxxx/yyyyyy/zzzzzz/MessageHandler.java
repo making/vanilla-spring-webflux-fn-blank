@@ -10,6 +10,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static java.util.Collections.singletonMap;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.badRequest;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
@@ -32,7 +33,7 @@ public class MessageHandler {
 		return req.bodyToMono(Message.class)
 				.flatMap(b -> Message.validator.validateToEither(b)
 						.bimap(ConstraintViolations::details, this.messages::add)
-						.fold(v -> badRequest().syncBody(v),
+						.fold(v -> badRequest().syncBody(singletonMap("details", v)),
 								body -> ok().syncBody(body)));
 	}
 }

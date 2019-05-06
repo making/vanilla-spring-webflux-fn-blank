@@ -23,7 +23,7 @@ public class MessageHandlerTest {
 				.syncBody(new Message("HelloHello")).exchange() //
 				.expectStatus().isBadRequest() //
 				.expectBody(JsonNode.class)
-				.value(n -> n.get(0).get("defaultMessage").asText(), is(
+				.value(n -> n.get("details").get(0).get("defaultMessage").asText(), is(
 						"The size of \"text\" must be less than or equal to 8. The given size is 10"));
 	}
 
