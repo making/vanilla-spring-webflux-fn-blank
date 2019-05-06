@@ -32,6 +32,7 @@ public class MessageHandler {
 		return req.bodyToMono(Message.class)
 				.flatMap(b -> Message.validator.validateToEither(b)
 						.bimap(ConstraintViolations::details, this.messages::add)
-						.fold(v -> badRequest().syncBody(v), body -> ok().syncBody(b)));
+						.fold(v -> badRequest().syncBody(v),
+								body -> ok().syncBody(body)));
 	}
 }
