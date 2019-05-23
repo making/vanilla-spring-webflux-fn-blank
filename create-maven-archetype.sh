@@ -4,7 +4,7 @@ KEYWORD="DELETE THIS LINE"
 
 rm -rf ./tmp
 mkdir tmp
-cp -r src pom.xml .mvn mvnw* tmp
+cp -r src pom.xml .mvn mvnw* .gitignore tmp
 pushd tmp
 TMP_DIR=`pwd`
 
