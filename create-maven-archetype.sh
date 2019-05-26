@@ -2,9 +2,10 @@
 
 KEYWORD="DELETE THIS LINE"
 
+BASE_DIR=$(pwd)
 rm -rf ./tmp
 mkdir tmp
-cp -r src pom.xml .mvn mvnw* .gitignore tmp
+cp -r src pom.xml tmp
 pushd tmp
 TMP_DIR=`pwd`
 
@@ -17,6 +18,7 @@ mv src/main/resources/META-INF/native-image/am.ik.archetype src/main/resources/M
 mvn archetype:create-from-project
 
 pushd target/generated-sources/archetype
+cp -a ${BASE_DIR}/.mvn ${BASE_DIR}/mvnw* ${BASE_DIR}/.gitignore ./target/classes/archetype-resources
 sed -i.bk "/${KEYWORD}/d" target/classes/archetype-resources/pom.xml
 sed -i.bk "s|xxxxxx\.yyyyyy\.zzzzzz|\${package}|g" target/classes/archetype-resources/pom.xml
 sed -i.bk "s|xxxxxx\.yyyyyy\.zzzzzz|am.ik.archetype|g" pom.xml
