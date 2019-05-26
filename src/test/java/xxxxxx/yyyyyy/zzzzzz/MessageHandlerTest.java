@@ -1,8 +1,8 @@
 package xxxxxx.yyyyyy.zzzzzz;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -11,14 +11,14 @@ import static org.hamcrest.Matchers.is;
 public class MessageHandlerTest {
 	private WebTestClient testClient;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeAll
+	void setUp() throws Exception {
 		this.testClient = WebTestClient
 				.bindToRouterFunction(new MessageHandler().routes()).build();
 	}
 
 	@Test
-	public void testInvalidMessage() throws Exception {
+	void testInvalidMessage() throws Exception {
 		this.testClient.post().uri("/messages") //
 				.syncBody(new Message("HelloHello")).exchange() //
 				.expectStatus().isBadRequest() //
@@ -28,7 +28,7 @@ public class MessageHandlerTest {
 	}
 
 	@Test
-	public void testMessage() throws Exception {
+	void testMessage() throws Exception {
 		this.testClient.post().uri("/messages") //
 				.syncBody(new Message("Hello")).exchange() //
 				.expectStatus().isOk() //

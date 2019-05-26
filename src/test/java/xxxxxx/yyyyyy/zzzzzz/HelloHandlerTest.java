@@ -1,21 +1,21 @@
 package xxxxxx.yyyyyy.zzzzzz;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 public class HelloHandlerTest {
 	private WebTestClient testClient;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeAll
+	void setUp() throws Exception {
 		this.testClient = WebTestClient.bindToRouterFunction(new HelloHandler().routes())
 				.build();
 	}
 
 	@Test
-	public void testHello() throws Exception {
+	void testHello() throws Exception {
 		this.testClient.get().uri("/") //
 				.exchange() //
 				.expectStatus().isOk() //
