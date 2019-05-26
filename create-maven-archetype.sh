@@ -4,7 +4,7 @@ KEYWORD="DELETE THIS LINE"
 
 rm -rf ./tmp
 mkdir tmp
-cp -r src pom.xml .mvn mvnw* .gitignore tmp
+cp -a src pom.xml .mvn mvnw* .gitignore tmp
 pushd tmp
 TMP_DIR=`pwd`
 
@@ -14,7 +14,7 @@ sed -i.bk "s|github\.com/making/projectName|github.com/making/vanilla-spring-web
 mv src/main/resources/META-INF/native-image/am.ik.archetype/vanilla-spring-webflux-fn-blank src/main/resources/META-INF/native-image/am.ik.archetype/projectName
 mv src/main/resources/META-INF/native-image/am.ik.archetype src/main/resources/META-INF/native-image/xxxxxx.yyyyyy.zzzzzz
 
-mvn archetype:create-from-project
+mvn maven-archetype-plugin:3.0.1:create-from-project
 
 pushd target/generated-sources/archetype
 sed -i.bk "/${KEYWORD}/d" target/classes/archetype-resources/pom.xml
