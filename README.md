@@ -81,8 +81,12 @@ $ mvn archetype:generate\
 [INFO] Final Memory: 15M/60M
 [INFO] ------------------------------------------------------------------------
 
-$ tree demo-fluxfn
+$ tree demo-fluxfn -a
 demo-fluxfn/
+├── .mvn
+│   └── wrapper
+│       ├── maven-wrapper.jar
+│       └── maven-wrapper.properties
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
@@ -115,7 +119,7 @@ demo-fluxfn/
         └── resources
             └── junit-platform.properties
 
-15 directories, 16 files
+17 directories, 18 files
 
 ```
 
