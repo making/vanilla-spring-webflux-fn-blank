@@ -16,7 +16,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.4
+ -DarchetypeVersion=0.2.6
 ```
 
 #### Use Spring 5.1.x
@@ -34,7 +34,7 @@ mvn archetype:generate\
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.4\
+ -DarchetypeVersion=0.2.6\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -53,13 +53,9 @@ $ mvn archetype:generate\
 [INFO] 
 [INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Batch mode
-[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.2] found in catalog remote
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.4/vanilla-spring-webflux-fn-blank-archetype-0.2.4.pom
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.4/vanilla-spring-webflux-fn-blank-archetype-0.2.4.pom (2.7 kB at 8.0 kB/s)
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.4/vanilla-spring-webflux-fn-blank-archetype-0.2.4.jar
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.4/vanilla-spring-webflux-fn-blank-archetype-0.2.4.jar (8.8 kB at 27 kB/s)
+[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.6] found in catalog remote
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.4
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.6
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
@@ -80,13 +76,15 @@ $ mvn archetype:generate\
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.795 s
-[INFO] Finished at: 2019-05-03T11:09:18+09:00
-[INFO] Final Memory: 15M/64M
+[INFO] Total time: 4.002 s
+[INFO] Finished at: 2019-05-27T08:47:07+09:00
+[INFO] Final Memory: 15M/60M
 [INFO] ------------------------------------------------------------------------
 
 $ tree demo-fluxfn
-demo-fluxfn
+demo-fluxfn/
+├── mvnw
+├── mvnw.cmd
 ├── pom.xml
 └── src
     ├── main
@@ -109,13 +107,16 @@ demo-fluxfn
     │       │               └── yavi.json
     │       └── logback.xml
     └── test
-        └── java
-            └── com
-                └── example
-                    ├── HelloHandlerTest.java
-                    └── MessageHandlerTest.java
+        ├── java
+        │   └── com
+        │       └── example
+        │           ├── HelloHandlerTest.java
+        │           └── MessageHandlerTest.java
+        └── resources
+            └── junit-platform.properties
 
-14 directories, 13 files
+15 directories, 16 files
+
 ```
 
 
@@ -124,7 +125,7 @@ demo-fluxfn
 $ cd demo-fluxfn
 $ mvn clean package
 $ java -jar target/demo-fluxfn-1.0.0-SNAPSHOT.jar 
-2019-05-03 11:11:47.902  INFO --- [           main] com.example.App                          : Started in 0.693 seconds
+2019-05-27 08:49:42.073  INFO --- [           main] com.example.App                          : Started in 0.781 seconds
 ```
 
 ```
@@ -136,36 +137,37 @@ Following libraries will be included:
 
 ```
 $ mvn dependency:list | grep ':compile' | sort
-[INFO]    am.ik.yavi:yavi:jar:0.1.0:compile
+[INFO]    am.ik.yavi:yavi:jar:0.2.2:compile
 [INFO]    ch.qos.logback:logback-classic:jar:1.2.3:compile
 [INFO]    ch.qos.logback:logback-core:jar:1.2.3:compile
 [INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
 [INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
 [INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile
-[INFO]    io.netty:netty-buffer:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-codec-http2:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-codec-http:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-codec-socks:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-codec:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-common:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-handler-proxy:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-handler:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-resolver:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.34.Final:compile
-[INFO]    io.netty:netty-transport:jar:4.1.34.Final:compile
-[INFO]    io.projectreactor.netty:reactor-netty:jar:0.8.6.RELEASE:compile
-[INFO]    io.projectreactor:reactor-core:jar:3.2.8.RELEASE:compile
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.8:compile
+[INFO]    io.netty:netty-buffer:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-codec-http2:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-codec-http:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-codec-socks:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-codec:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-common:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-handler-proxy:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-handler:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-resolver:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.36.Final:compile
+[INFO]    io.netty:netty-transport:jar:4.1.36.Final:compile
+[INFO]    io.projectreactor.netty:reactor-netty:jar:0.9.0.M1:compile
+[INFO]    io.projectreactor:reactor-core:jar:3.3.0.M1:compile
 [INFO]    org.reactivestreams:reactive-streams:jar:1.0.2:compile
 [INFO]    org.slf4j:slf4j-api:jar:1.7.26:compile
-[INFO]    org.springframework:spring-aop:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-beans:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-context:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-core:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-expression:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-jcl:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-web:jar:5.2.0.M1:compile
-[INFO]    org.springframework:spring-webflux:jar:5.2.0.M1:compile
+[INFO]    org.springframework:spring-aop:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-beans:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-context:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-core:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-expression:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-jcl:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-web:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-webflux:jar:5.2.0.M2:compile
 ```
 
 Configure memory size as below:
@@ -310,6 +312,8 @@ See also [Functional Spring Cookbook](https://github.com/making/functional-sprin
 ### GraalVM support
 
 0.2.x supports [GraalVM](https://www.graalvm.org) build.
+
+Only GraalVM RC15 is tested. **GrralVM 19 (GA) is not supported yet.**
 
 ```
 $ mvn archetype:generate\
