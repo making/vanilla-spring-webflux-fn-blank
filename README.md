@@ -16,7 +16,17 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.6
+ -DarchetypeVersion=0.2.9
+```
+
+for SNAPSHOT version
+
+```
+mvn -U org.apache.maven.plugins:maven-archetype-plugin:2.2:generate \
+ -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
+ -DarchetypeGroupId=am.ik.archetype\
+ -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
+ -DarchetypeVersion=0.2.10-SNAPSHOT
 ```
 
 #### Use Spring 5.1.x
@@ -34,7 +44,7 @@ mvn archetype:generate\
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.6\
+ -DarchetypeVersion=0.2.9\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -53,9 +63,13 @@ $ mvn archetype:generate\
 [INFO] 
 [INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Batch mode
-[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.6] found in catalog remote
+[INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.8] found in catalog remote
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.9/vanilla-spring-webflux-fn-blank-archetype-0.2.9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.9/vanilla-spring-webflux-fn-blank-archetype-0.2.9.pom (2.7 kB at 6.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.9/vanilla-spring-webflux-fn-blank-archetype-0.2.9.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.9/vanilla-spring-webflux-fn-blank-archetype-0.2.9.jar (56 kB at 135 kB/s)
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.6
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.9
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
@@ -63,26 +77,26 @@ $ mvn archetype:generate\
 [INFO] Parameter: package, Value: com.example
 [INFO] Parameter: packageInPathFormat, Value: com/example
 [INFO] Parameter: package, Value: com.example
+[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
-[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
-[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/logback.xml
 [WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/yavi.json
-[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/native-image.properties
-[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/netty.json
 [WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/app.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/native-image.properties
 [WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/framework.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/META-INF/native-image/com.example/demo-fluxfn/netty.json
+[WARNING] CP Don't override file /private/tmp/demo-fluxfn/src/main/resources/logback.xml
 [INFO] Project created from Archetype in dir: /private/tmp/demo-fluxfn
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.002 s
-[INFO] Finished at: 2019-05-27T08:47:07+09:00
-[INFO] Final Memory: 15M/60M
+[INFO] Total time: 5.250 s
+[INFO] Finished at: 2019-09-04T15:49:11+09:00
+[INFO] Final Memory: 15M/216M
 [INFO] ------------------------------------------------------------------------
 
 $ tree demo-fluxfn -a
-demo-fluxfn/
+demo-fluxfn
 ├── .mvn
 │   └── wrapper
 │       ├── maven-wrapper.jar
@@ -120,7 +134,6 @@ demo-fluxfn/
             └── junit-platform.properties
 
 17 directories, 18 files
-
 ```
 
 
@@ -145,33 +158,33 @@ $ mvn dependency:list | grep ':compile' | sort
 [INFO]    ch.qos.logback:logback-classic:jar:1.2.3:compile
 [INFO]    ch.qos.logback:logback-core:jar:1.2.3:compile
 [INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
-[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
-[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile
-[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.8:compile
-[INFO]    io.netty:netty-buffer:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-codec-http2:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-codec-http:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-codec-socks:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-codec:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-common:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-handler-proxy:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-handler:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-resolver:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.36.Final:compile
-[INFO]    io.netty:netty-transport:jar:4.1.36.Final:compile
-[INFO]    io.projectreactor.netty:reactor-netty:jar:0.9.0.M1:compile
-[INFO]    io.projectreactor:reactor-core:jar:3.3.0.M1:compile
+[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.9.9:compile
+[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.9.9:compile
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.9:compile
+[INFO]    io.netty:netty-buffer:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-codec-http:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-codec-socks:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-codec:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-common:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-handler-proxy:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-handler:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-resolver:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-transport-native-epoll:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.38.Final:compile
+[INFO]    io.netty:netty-transport:jar:4.1.38.Final:compile
+[INFO]    io.projectreactor.addons:reactor-pool:jar:0.0.1.M3:compile
+[INFO]    io.projectreactor.netty:reactor-netty:jar:0.9.0.M3:compile
+[INFO]    io.projectreactor:reactor-core:jar:3.3.0.M3:compile
 [INFO]    org.reactivestreams:reactive-streams:jar:1.0.2:compile
 [INFO]    org.slf4j:slf4j-api:jar:1.7.26:compile
-[INFO]    org.springframework:spring-aop:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-beans:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-context:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-core:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-expression:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-jcl:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-web:jar:5.2.0.M2:compile
-[INFO]    org.springframework:spring-webflux:jar:5.2.0.M2:compile
+[INFO]    org.springframework:spring-aop:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-beans:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-context:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-core:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-expression:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-jcl:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-web:jar:5.2.0.RC1:compile
+[INFO]    org.springframework:spring-webflux:jar:5.2.0.RC1:compile
 ```
 
 Configure memory size as below:
@@ -317,13 +330,13 @@ See also [Functional Spring Cookbook](https://github.com/making/functional-sprin
 
 0.2.x supports [GraalVM](https://www.graalvm.org) build.
 
-Only GraalVM RC15 is tested. **GrralVM 19 (GA) is not supported yet.**
+Tested with 19.2.0.
 
 ```
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.4\
+ -DarchetypeVersion=0.2.9\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -335,6 +348,13 @@ Install [GraalVM](https://www.graalvm.org/downloads/) and configure
 ```
 export JAVA_HOME=/path-to-graalvm
 export PATH=$PATH:$JAVA_HOME/bin
+```
+
+If you are using SDKMAN, try 
+
+```
+sdk install java 19.2.0-grl
+sdk use java 19.2.0-grl
 ```
 
 ```
@@ -356,79 +376,86 @@ $ mvn clean package -DskipTests=true -Pgraal
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ demo-fluxfn ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 4 source files to /private/tmp/demo-fluxfn/target/classes
+[WARNING] /private/tmp/demo-fluxfn/src/main/java/com/example/MessageHandler.java: /private/tmp/demo-fluxfn/src/main/java/com/example/MessageHandler.javaは非推奨のAPIを使用またはオーバーライドしています。
+[WARNING] /private/tmp/demo-fluxfn/src/main/java/com/example/MessageHandler.java: 詳細は、-Xlint:deprecationオプションを指定して再コンパイルしてください。
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ demo-fluxfn ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /private/tmp/demo-fluxfn/src/test/resources
+[INFO] Copying 1 resource
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ demo-fluxfn ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 2 source files to /private/tmp/demo-fluxfn/target/test-classes
+[WARNING] /private/tmp/demo-fluxfn/src/test/java/com/example/MessageHandlerTest.java: /private/tmp/demo-fluxfn/src/test/java/com/example/MessageHandlerTest.javaは非推奨のAPIを使用またはオーバーライドしています。
+[WARNING] /private/tmp/demo-fluxfn/src/test/java/com/example/MessageHandlerTest.java: 詳細は、-Xlint:deprecationオプションを指定して再コンパイルしてください。
 [INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ demo-fluxfn ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ demo-fluxfn ---
 [INFO] Tests are skipped.
 [INFO] 
 [INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ demo-fluxfn ---
 [INFO] Building jar: /private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar
 [INFO] 
-[INFO] --- native-image-maven-plugin:1.0.0-rc15:native-image (default) @ demo-fluxfn ---
-[INFO] ImageClasspath Entry: org.springframework:spring-context:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-context/5.2.0.M1/spring-context-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-aop:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-aop/5.2.0.M1/spring-aop-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-beans:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-beans/5.2.0.M1/spring-beans-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-core:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-core/5.2.0.M1/spring-core-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-jcl:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-jcl/5.2.0.M1/spring-jcl-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-expression:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-expression/5.2.0.M1/spring-expression-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-webflux:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-webflux/5.2.0.M1/spring-webflux-5.2.0.M1.jar)
-[INFO] ImageClasspath Entry: io.projectreactor:reactor-core:jar:3.2.8.RELEASE:compile (file:///Users/maki/.m2/repository/io/projectreactor/reactor-core/3.2.8.RELEASE/reactor-core-3.2.8.RELEASE.jar)
+[INFO] --- native-image-maven-plugin:19.2.0:native-image (default) @ demo-fluxfn ---
+[INFO] ImageClasspath Entry: org.springframework:spring-context:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-context/5.2.0.RC1/spring-context-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-aop:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-aop/5.2.0.RC1/spring-aop-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-beans:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-beans/5.2.0.RC1/spring-beans-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-core:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-core/5.2.0.RC1/spring-core-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-jcl:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-jcl/5.2.0.RC1/spring-jcl-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-expression:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-expression/5.2.0.RC1/spring-expression-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-webflux:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-webflux/5.2.0.RC1/spring-webflux-5.2.0.RC1.jar)
+[INFO] ImageClasspath Entry: io.projectreactor:reactor-core:jar:3.3.0.M3:compile (file:///Users/maki/.m2/repository/io/projectreactor/reactor-core/3.3.0.M3/reactor-core-3.3.0.M3.jar)
 [INFO] ImageClasspath Entry: org.reactivestreams:reactive-streams:jar:1.0.2:compile (file:///Users/maki/.m2/repository/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar)
-[INFO] ImageClasspath Entry: org.springframework:spring-web:jar:5.2.0.M1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-web/5.2.0.M1/spring-web-5.2.0.M1.jar)
+[INFO] ImageClasspath Entry: org.springframework:spring-web:jar:5.2.0.RC1:compile (file:///Users/maki/.m2/repository/org/springframework/spring-web/5.2.0.RC1/spring-web-5.2.0.RC1.jar)
 [INFO] ImageClasspath Entry: ch.qos.logback:logback-classic:jar:1.2.3:compile (file:///Users/maki/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar)
 [INFO] ImageClasspath Entry: ch.qos.logback:logback-core:jar:1.2.3:compile (file:///Users/maki/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar)
 [INFO] ImageClasspath Entry: org.slf4j:slf4j-api:jar:1.7.26:compile (file:///Users/maki/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar)
-[INFO] ImageClasspath Entry: io.projectreactor.netty:reactor-netty:jar:0.8.6.RELEASE:compile (file:///Users/maki/.m2/repository/io/projectreactor/netty/reactor-netty/0.8.6.RELEASE/reactor-netty-0.8.6.RELEASE.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-codec-http:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.34.Final/netty-codec-http-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-common:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-common/4.1.34.Final/netty-common-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-buffer:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-buffer/4.1.34.Final/netty-buffer-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-transport:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-transport/4.1.34.Final/netty-transport-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-resolver:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-resolver/4.1.34.Final/netty-resolver-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-codec:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec/4.1.34.Final/netty-codec-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-codec-http2:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec-http2/4.1.34.Final/netty-codec-http2-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-handler:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-handler/4.1.34.Final/netty-handler-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-handler-proxy:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-handler-proxy/4.1.34.Final/netty-handler-proxy-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: io.netty:netty-codec-socks:jar:4.1.34.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec-socks/4.1.34.Final/netty-codec-socks-4.1.34.Final.jar)
-[INFO] ImageClasspath Entry: com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.8/jackson-databind-2.9.8.jar)
+[INFO] ImageClasspath Entry: io.projectreactor.netty:reactor-netty:jar:0.9.0.M3:compile (file:///Users/maki/.m2/repository/io/projectreactor/netty/reactor-netty/0.9.0.M3/reactor-netty-0.9.0.M3.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-codec-http:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.38.Final/netty-codec-http-4.1.38.Final.jar)
+[WARNING] jar:file:///Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.38.Final/netty-codec-http-4.1.38.Final.jar!/META-INF/native-image/io.netty/codec-http/native-image.properties does not match recommended META-INF/native-image/${groupId}/${artifactId}/native-image.properties layout.
+[INFO] ImageClasspath Entry: io.netty:netty-common:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-common/4.1.38.Final/netty-common-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-buffer:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-buffer/4.1.38.Final/netty-buffer-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-transport:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-transport/4.1.38.Final/netty-transport-4.1.38.Final.jar)
+[WARNING] jar:file:///Users/maki/.m2/repository/io/netty/netty-transport/4.1.38.Final/netty-transport-4.1.38.Final.jar!/META-INF/native-image/io.netty/transport/native-image.properties does not match recommended META-INF/native-image/${groupId}/${artifactId}/native-image.properties layout.
+[INFO] ImageClasspath Entry: io.netty:netty-resolver:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-resolver/4.1.38.Final/netty-resolver-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-codec:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec/4.1.38.Final/netty-codec-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-handler:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-handler/4.1.38.Final/netty-handler-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-handler-proxy:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-handler-proxy/4.1.38.Final/netty-handler-proxy-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.netty:netty-codec-socks:jar:4.1.38.Final:compile (file:///Users/maki/.m2/repository/io/netty/netty-codec-socks/4.1.38.Final/netty-codec-socks-4.1.38.Final.jar)
+[INFO] ImageClasspath Entry: io.projectreactor.addons:reactor-pool:jar:0.0.1.M3:compile (file:///Users/maki/.m2/repository/io/projectreactor/addons/reactor-pool/0.0.1.M3/reactor-pool-0.0.1.M3.jar)
+[INFO] ImageClasspath Entry: com.fasterxml.jackson.core:jackson-databind:jar:2.9.9:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar)
 [INFO] ImageClasspath Entry: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar)
-[INFO] ImageClasspath Entry: com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar)
-[INFO] ImageClasspath Entry: am.ik.yavi:yavi:jar:0.1.0:compile (file:///Users/maki/.m2/repository/am/ik/yavi/yavi/0.1.0/yavi-0.1.0.jar)
+[INFO] ImageClasspath Entry: com.fasterxml.jackson.core:jackson-core:jar:2.9.9:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar)
+[INFO] ImageClasspath Entry: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.9:compile (file:///Users/maki/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar)
+[INFO] ImageClasspath Entry: am.ik.yavi:yavi:jar:0.2.2:compile (file:///Users/maki/.m2/repository/am/ik/yavi/yavi/0.2.2/yavi-0.2.2.jar)
 [INFO] ImageClasspath Entry: com.example:demo-fluxfn:jar:1.0.0-SNAPSHOT (file:///private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar)
-[INFO] Executing: /Library/Java/JavaVirtualMachines/graalvm-ce-1.0.0-rc15/Contents/Home/jre/bin/native-image -cp /Users/maki/.m2/repository/org/springframework/spring-context/5.2.0.M1/spring-context-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-aop/5.2.0.M1/spring-aop-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-beans/5.2.0.M1/spring-beans-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-core/5.2.0.M1/spring-core-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-jcl/5.2.0.M1/spring-jcl-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-expression/5.2.0.M1/spring-expression-5.2.0.M1.jar:/Users/maki/.m2/repository/org/springframework/spring-webflux/5.2.0.M1/spring-webflux-5.2.0.M1.jar:/Users/maki/.m2/repository/io/projectreactor/reactor-core/3.2.8.RELEASE/reactor-core-3.2.8.RELEASE.jar:/Users/maki/.m2/repository/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar:/Users/maki/.m2/repository/org/springframework/spring-web/5.2.0.M1/spring-web-5.2.0.M1.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/maki/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/Users/maki/.m2/repository/io/projectreactor/netty/reactor-netty/0.8.6.RELEASE/reactor-netty-0.8.6.RELEASE.jar:/Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.34.Final/netty-codec-http-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-common/4.1.34.Final/netty-common-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-buffer/4.1.34.Final/netty-buffer-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-transport/4.1.34.Final/netty-transport-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-resolver/4.1.34.Final/netty-resolver-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec/4.1.34.Final/netty-codec-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec-http2/4.1.34.Final/netty-codec-http2-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler/4.1.34.Final/netty-handler-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler-proxy/4.1.34.Final/netty-handler-proxy-4.1.34.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec-socks/4.1.34.Final/netty-codec-socks-4.1.34.Final.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.8/jackson-databind-2.9.8.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar:/Users/maki/.m2/repository/am/ik/yavi/yavi/0.1.0/yavi-0.1.0.jar:/private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar -H:Class=com.example.App -H:Name=demo-fluxfn
-Build on Server(pid: 87240, port: 58915)*
-[demo-fluxfn:87240]    classlist:   4,369.74 ms
-[demo-fluxfn:87240]        (cap):   1,607.49 ms
-[demo-fluxfn:87240]        setup:   2,859.84 ms
-Warning: RecomputeFieldValue.ArrayIndexScale automatic substitution failed. The automatic substitution registration was attempted because a call to sun.misc.Unsafe.arrayIndexScale(Class) was detected in the static initializer of io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess. Detailed failure reason(s): Could not determine the field where the value produced by the call to sun.misc.Unsafe.arrayIndexScale(Class) for the array index scale computation is stored. The call is not directly followed by a field store or by a sign extend node followed directly by a field store. 
-[demo-fluxfn:87240]   (typeflow):  13,664.99 ms
-[demo-fluxfn:87240]    (objects):  12,975.54 ms
-[demo-fluxfn:87240]   (features):     798.34 ms
-[demo-fluxfn:87240]     analysis:  28,747.24 ms
-[demo-fluxfn:87240]     universe:   1,023.64 ms
-[demo-fluxfn:87240]      (parse):   2,913.02 ms
-[demo-fluxfn:87240]     (inline):   4,572.16 ms
-[demo-fluxfn:87240]    (compile):  19,382.14 ms
-[demo-fluxfn:87240]      compile:  28,609.05 ms
-[demo-fluxfn:87240]        image:   2,425.67 ms
-[demo-fluxfn:87240]        write:   1,055.92 ms
-[demo-fluxfn:87240]      [total]:  69,419.11 ms
+[INFO] Executing: /Users/maki/.sdkman/candidates/java/19.2.0-grl/jre/bin/native-image -cp /Users/maki/.m2/repository/org/springframework/spring-context/5.2.0.RC1/spring-context-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-aop/5.2.0.RC1/spring-aop-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-beans/5.2.0.RC1/spring-beans-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-core/5.2.0.RC1/spring-core-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-jcl/5.2.0.RC1/spring-jcl-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-expression/5.2.0.RC1/spring-expression-5.2.0.RC1.jar:/Users/maki/.m2/repository/org/springframework/spring-webflux/5.2.0.RC1/spring-webflux-5.2.0.RC1.jar:/Users/maki/.m2/repository/io/projectreactor/reactor-core/3.3.0.M3/reactor-core-3.3.0.M3.jar:/Users/maki/.m2/repository/org/reactivestreams/reactive-streams/1.0.2/reactive-streams-1.0.2.jar:/Users/maki/.m2/repository/org/springframework/spring-web/5.2.0.RC1/spring-web-5.2.0.RC1.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/Users/maki/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/maki/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/Users/maki/.m2/repository/io/projectreactor/netty/reactor-netty/0.9.0.M3/reactor-netty-0.9.0.M3.jar:/Users/maki/.m2/repository/io/netty/netty-codec-http/4.1.38.Final/netty-codec-http-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-common/4.1.38.Final/netty-common-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-buffer/4.1.38.Final/netty-buffer-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-transport/4.1.38.Final/netty-transport-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-resolver/4.1.38.Final/netty-resolver-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec/4.1.38.Final/netty-codec-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler/4.1.38.Final/netty-handler-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-handler-proxy/4.1.38.Final/netty-handler-proxy-4.1.38.Final.jar:/Users/maki/.m2/repository/io/netty/netty-codec-socks/4.1.38.Final/netty-codec-socks-4.1.38.Final.jar:/Users/maki/.m2/repository/io/projectreactor/addons/reactor-pool/0.0.1.M3/reactor-pool-0.0.1.M3.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar:/Users/maki/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar:/Users/maki/.m2/repository/am/ik/yavi/yavi/0.2.2/yavi-0.2.2.jar:/private/tmp/demo-fluxfn/target/demo-fluxfn-1.0.0-SNAPSHOT.jar -H:Class=com.example.App -H:Name=demo-fluxfn
+Build on Server(pid: 81439, port: 49961)
+[demo-fluxfn:81439]    classlist:   4,522.45 ms
+[demo-fluxfn:81439]        (cap):   1,229.01 ms
+[demo-fluxfn:81439]        setup:   1,651.86 ms
+[demo-fluxfn:81439]   (typeflow):  10,584.82 ms
+[demo-fluxfn:81439]    (objects):   9,919.39 ms
+[demo-fluxfn:81439]   (features):     599.15 ms
+[demo-fluxfn:81439]     analysis:  21,764.91 ms
+[demo-fluxfn:81439]     (clinit):     511.80 ms
+[demo-fluxfn:81439]     universe:   1,024.54 ms
+[demo-fluxfn:81439]      (parse):     854.77 ms
+[demo-fluxfn:81439]     (inline):   2,444.39 ms
+[demo-fluxfn:81439]    (compile):   9,334.19 ms
+[demo-fluxfn:81439]      compile:  13,607.36 ms
+[demo-fluxfn:81439]        image:   1,593.04 ms
+[demo-fluxfn:81439]        write:     618.72 ms
+[demo-fluxfn:81439]      [total]:  44,871.09 ms
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:13 min
-[INFO] Finished at: 2019-05-03T11:14:44+09:00
-[INFO] Final Memory: 32M/308M
+[INFO] Total time: 49.578 s
+[INFO] Finished at: 2019-09-04T16:11:07+09:00
+[INFO] Final Memory: 33M/312M
 [INFO] ------------------------------------------------------------------------
 
 $ ./target/classes/demo-fluxfn 
-2019-05-03 11:15:20.911  INFO --- [           main] com.example.App                          : Started in 0.003 seconds
+2019-09-04 16:11:39.974  INFO --- [           main] com.example.App                          : Started in 0.004 seconds
 ```
 
 ```
@@ -442,17 +469,29 @@ $ curl localhost:8080/messages -w "\n"
 [{"text":"Hello"}]
 ```
 
+you can also build with docker as follows:
+
+```
+chmod +x mvnw
+docker run --rm \
+           -v "$PWD":/usr/src \
+           -v "$HOME/.m2":/root/.m2 \
+           -w /usr/src \
+           oracle/graalvm-ce:19.2.0 \
+           ./mvnw clean package -Pgraal
+```
+
 #### Deploy to Cloud Foundry
 
 Build a image for Linux with Docker
 
 ```
-mvn -N io.takari:maven:wrapper
+chmod +x mvnw
 docker run --rm \
            -v "$PWD":/usr/src \
            -v "$HOME/.m2":/root/.m2 \
            -w /usr/src \
-           oracle/graalvm-ce:1.0.0-rc15 \
+           oracle/graalvm-ce:19.2.0 \
            ./mvnw package -Pgraal
 ```
 
@@ -461,7 +500,7 @@ and `cf push`
 ```
 mkdir -p build
 cp target/classes/demo-fluxfn ./build/
-cf push demo-fluxfn --random-route -m 200m -b binary_buildpack -p ./build -c './demo-fluxfn'
+cf push demo-fluxfn --random-route -m 128m -b binary_buildpack -p ./build -c './demo-fluxfn'
 ```
 
 ```
@@ -473,9 +512,9 @@ Creating app with these attributes...
   buildpacks:
 +   binary_buildpack
 + command:      ./demo-fluxfn
-+ memory:       200M
++ memory:       128M
   routes:
-+   demo-fluxfn-generous-meerkat.cfapps.io
++   demo-fluxfn-cheerful-chimpanzee.cfapps.io
 
 Creating app demo-fluxfn...
 Mapping routes...
@@ -486,37 +525,37 @@ Waiting for API to complete processing files...
 Staging app and tracing logs...
    Downloading binary_buildpack...
    Downloaded binary_buildpack
-   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c creating container for instance df047713-152b-46f6-a146-cb5c163652eb
-   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c successfully created container for instance df047713-152b-46f6-a146-cb5c163652eb
+   Cell 78d73e58-9a73-4317-bb61-c56223af688b creating container for instance 473b0faf-bdf8-4765-ac70-f31f8ab27db7
+   Cell 78d73e58-9a73-4317-bb61-c56223af688b successfully created container for instance 473b0faf-bdf8-4765-ac70-f31f8ab27db7
    Downloading app package...
-   Downloaded app package (8.5M)
-   -----> Binary Buildpack version 1.0.31
+   Downloaded app package (7.7M)
+   -----> Binary Buildpack version 1.0.33
    Exit status 0
    Uploading droplet, build artifacts cache...
-   Uploading build artifacts cache...
    Uploading droplet...
-   Uploaded build artifacts cache (213B)
-   Uploaded droplet (8.5M)
+   Uploading build artifacts cache...
+   Uploaded build artifacts cache (215B)
+   Uploaded droplet (7.7M)
    Uploading complete
-   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c stopping instance df047713-152b-46f6-a146-cb5c163652eb
-   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c destroying container for instance df047713-152b-46f6-a146-cb5c163652eb
-   Cell dea4506e-e72c-4aec-bd88-5926d8e5217c successfully destroyed container for instance df047713-152b-46f6-a146-cb5c163652eb
+   Cell 78d73e58-9a73-4317-bb61-c56223af688b stopping instance 473b0faf-bdf8-4765-ac70-f31f8ab27db7
+   Cell 78d73e58-9a73-4317-bb61-c56223af688b destroying container for instance 473b0faf-bdf8-4765-ac70-f31f8ab27db7
+   Cell 78d73e58-9a73-4317-bb61-c56223af688b successfully destroyed container for instance 473b0faf-bdf8-4765-ac70-f31f8ab27db7
 
 Waiting for app to start...
 
 name:              demo-fluxfn
 requested state:   started
-routes:            demo-fluxfn-generous-meerkat.cfapps.io
-last uploaded:     Tue 23 Apr 03:06:19 JST 2019
+routes:            demo-fluxfn-cheerful-chimpanzee.cfapps.io
+last uploaded:     Wed 04 Sep 16:31:12 JST 2019
 stack:             cflinuxfs3
 buildpacks:        binary
 
 type:            web
 instances:       1/1
-memory usage:    200M
+memory usage:    128M
 start command:   ./demo-fluxfn
      state     since                  cpu    memory      disk      details
-#0   running   2019-04-22T18:06:29Z   0.0%   0 of 200M   0 of 1G   
+#0   running   2019-09-04T07:31:26Z   0.0%   0 of 128M   0 of 1G   
 ```
 
 ## License
