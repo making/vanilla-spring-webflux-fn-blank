@@ -1,9 +1,11 @@
 package xxxxxx.yyyyyy.zzzzzz;
 
 import java.io.Serializable;
+import java.util.function.Supplier;
 
 import am.ik.yavi.builder.ValidatorBuilder;
 import am.ik.yavi.core.Validator;
+import reactor.core.publisher.Mono;
 
 public class Message implements Serializable {
 	public static Validator<Message> validator = ValidatorBuilder.of(Message.class)
