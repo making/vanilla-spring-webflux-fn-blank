@@ -469,7 +469,7 @@ $ curl localhost:8080/messages -w "\n"
 [{"text":"Hello"}]
 ```
 
-you can also build with docker as follows:
+you can also build for Linux with docker as follows:
 
 ```
 chmod +x mvnw
