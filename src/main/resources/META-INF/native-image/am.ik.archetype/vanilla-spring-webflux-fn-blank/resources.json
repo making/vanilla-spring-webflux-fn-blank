@@ -1,0 +1,28 @@
+{
+  "resources": [
+    {
+      "pattern": ".*.html"
+    },
+    {
+      "pattern": ".*.css"
+    },
+    {
+      "pattern": ".*.js"
+    },
+    {
+      "pattern": ".*.json"
+    },
+    {
+      "pattern": ".*.ico"
+    },
+    {
+      "pattern": ".*.woff"
+    },
+    {
+      "pattern": ".*.eot"
+    },
+    {
+      "pattern": ".*.ttf"
+    }
+  ]
+}
