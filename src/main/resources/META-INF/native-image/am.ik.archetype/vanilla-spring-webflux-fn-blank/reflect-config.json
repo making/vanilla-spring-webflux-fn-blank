@@ -14,24 +14,6 @@
     ]
   },
   {
-    "name": "io.netty.channel.socket.nio.NioServerSocketChannel",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
-    "name": "io.netty.channel.socket.nio.NioSocketChannel",
-    "methods": [
-      {
-        "name": "<init>",
-        "parameterTypes": []
-      }
-    ]
-  },
-  {
     "name": "am.ik.yavi.core.ViolationDetail",
     "allDeclaredConstructors": true,
     "allDeclaredMethods": true
