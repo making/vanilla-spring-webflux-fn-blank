@@ -16,7 +16,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.10
+ -DarchetypeVersion=0.2.11
 ```
 
 for SNAPSHOT version
@@ -26,7 +26,7 @@ mvn -U org.apache.maven.plugins:maven-archetype-plugin:2.2:generate \
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.11-SNAPSHOT
+ -DarchetypeVersion=0.2.12-SNAPSHOT
 ```
 
 #### Use Spring 5.1.x
@@ -44,7 +44,7 @@ mvn archetype:generate\
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.10\
+ -DarchetypeVersion=0.2.11\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
@@ -64,12 +64,12 @@ $ mvn archetype:generate\
 [INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
 [INFO] Generating project in Batch mode
 [INFO] Archetype repository not defined. Using the one from [am.ik.archetype:vanilla-spring-webflux-fn-blank-archetype:0.2.8] found in catalog remote
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.10/vanilla-spring-webflux-fn-blank-archetype-0.2.10.pom
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.10/vanilla-spring-webflux-fn-blank-archetype-0.2.10.pom (2.7 kB at 6.6 kB/s)
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.10/vanilla-spring-webflux-fn-blank-archetype-0.2.10.jar
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.10/vanilla-spring-webflux-fn-blank-archetype-0.2.10.jar (56 kB at 135 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.11/vanilla-spring-webflux-fn-blank-archetype-0.2.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.11/vanilla-spring-webflux-fn-blank-archetype-0.2.11.pom (2.7 kB at 6.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.11/vanilla-spring-webflux-fn-blank-archetype-0.2.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/am/ik/archetype/vanilla-spring-webflux-fn-blank-archetype/0.2.11/vanilla-spring-webflux-fn-blank-archetype-0.2.11.jar (56 kB at 135 kB/s)
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.10
+[INFO] Using following parameters for creating project from Archetype: vanilla-spring-webflux-fn-blank-archetype:0.2.11
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: com.example
 [INFO] Parameter: artifactId, Value: demo-fluxfn
@@ -336,7 +336,7 @@ Tested with 19.2.0.
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.10\
+ -DarchetypeVersion=0.2.11\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
