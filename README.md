@@ -875,6 +875,13 @@ docker run --rm \
            ./mvnw clean package -Pgraal
 ```
 
+```
+docker run -p 8080:8080 --rm \
+   -v ${PWD}/target/classes:/work \
+   cloudfoundry/cflinuxfs3 \
+   /work/demo-fluxfn
+```
+
 and `cf push`
 
 ```
