@@ -193,6 +193,13 @@
             <properties>
                 <graal.version>19.2.0</graal.version>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.github.spring-projects-experimental</groupId>
+                    <artifactId>spring-graal-feature</artifactId>
+                    <version>0.5.0.RELEASE</version>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -227,6 +234,10 @@
     </profiles>
 
     <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
         <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
