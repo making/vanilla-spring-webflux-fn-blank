@@ -20,7 +20,7 @@ public class MessageHandlerTest {
 	@Test
 	void testInvalidMessage() throws Exception {
 		this.testClient.post().uri("/messages") //
-				.syncBody(new Message("HelloHello")).exchange() //
+				.bodyValue(new Message("HelloHello")).exchange() //
 				.expectStatus().isBadRequest() //
 				.expectBody(JsonNode.class)
 				.value(n -> n.get("details").get(0).get("defaultMessage").asText(), is(
@@ -30,7 +30,7 @@ public class MessageHandlerTest {
 	@Test
 	void testMessage() throws Exception {
 		this.testClient.post().uri("/messages") //
-				.syncBody(new Message("Hello")).exchange() //
+				.bodyValue(new Message("Hello")).exchange() //
 				.expectStatus().isOk() //
 				.expectBody(String.class).isEqualTo("{\"text\":\"Hello\"}");
 
