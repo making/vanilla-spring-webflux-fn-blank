@@ -26,7 +26,7 @@ public class MessageHandler {
 	}
 
 	Mono<ServerResponse> getMessages(ServerRequest req) {
-		return ok().syncBody(this.messages);
+		return ok().bodyValue(this.messages);
 	}
 
 	Mono<ServerResponse> postMessage(ServerRequest req) {
@@ -34,7 +34,7 @@ public class MessageHandler {
 				.flatMap(message -> Message.validator.validateToEither(message)
 						.doOnRight(this.messages::add)
 						.leftMap(ConstraintViolations::details)
-						.fold(v -> badRequest().syncBody(singletonMap("details", v)),
-								body -> ok().syncBody(body)));
+						.fold(v -> badRequest().bodyValue(singletonMap("details", v)),
+								body -> ok().bodyValue(body)));
 	}
 }
