@@ -5,6 +5,24 @@
     "allDeclaredMethods": true
   },
   {
+    "name": "io.netty.channel.socket.nio.NioServerSocketChannel",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "io.netty.channel.socket.nio.NioSocketChannel",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
     "name": "org.springframework.http.codec.support.DefaultServerCodecConfigurer",
     "methods": [
       {
