@@ -17,7 +17,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.2.0.RC1</spring-boot.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
         <r2dbc-releasetrain.version>Arabba-RC1</r2dbc-releasetrain.version>
         <start-class>xxxxxx.yyyyyy.zzzzzz.App</start-class>
     </properties>
@@ -96,7 +96,7 @@
         <dependency>
             <groupId>am.ik.yavi</groupId>
             <artifactId>yavi</artifactId>
-            <version>0.2.3</version>
+            <version>0.2.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -191,7 +191,7 @@
         <profile>
             <id>graal</id>
             <properties>
-                <graal.version>19.2.0</graal.version>
+                <graal.version>19.2.1</graal.version>
             </properties>
             <dependencies>
                 <dependency>
