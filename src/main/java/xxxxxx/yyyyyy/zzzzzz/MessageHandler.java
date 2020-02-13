@@ -32,7 +32,7 @@ public class MessageHandler {
 	Mono<ServerResponse> postMessage(ServerRequest req) {
 		return req.bodyToMono(Message.class)
 				.flatMap(message -> Message.validator.validateToEither(message)
-						.doOnRight(this.messages::add)
+						.peekRight(this.messages::add)
 						.leftMap(ConstraintViolations::details)
 						.fold(v -> badRequest().bodyValue(singletonMap("details", v)),
 								body -> ok().bodyValue(body)));
