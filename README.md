@@ -16,7 +16,7 @@ Only [Router Function](https://docs.spring.io/spring-framework/docs/5.0.x/spring
 mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.15
+ -DarchetypeVersion=0.2.19
 ```
 
 for SNAPSHOT version
@@ -26,7 +26,7 @@ mvn -U org.apache.maven.plugins:maven-archetype-plugin:2.2:generate \
  -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.16-SNAPSHOT
+ -DarchetypeVersion=0.2.20-SNAPSHOT
 ```
 
 #### Use Spring 5.1.x
@@ -44,7 +44,7 @@ mvn archetype:generate\
 $ mvn archetype:generate\
  -DarchetypeGroupId=am.ik.archetype\
  -DarchetypeArtifactId=vanilla-spring-webflux-fn-blank-archetype\
- -DarchetypeVersion=0.2.15\
+ -DarchetypeVersion=0.2.19\
  -DgroupId=com.example\
  -DartifactId=demo-fluxfn\
  -Dversion=1.0.0-SNAPSHOT\
