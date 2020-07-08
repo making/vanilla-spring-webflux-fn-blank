@@ -18,7 +18,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <java.version>1.8</java.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-        <r2dbc-releasetrain.version>Arabba-RC1</r2dbc-releasetrain.version>
         <start-class>xxxxxx.yyyyyy.zzzzzz.App</start-class>
     </properties>
 
@@ -126,13 +125,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.r2dbc</groupId>
-                <artifactId>r2dbc-bom</artifactId>
-                <version>${r2dbc-releasetrain.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
