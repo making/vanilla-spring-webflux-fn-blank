@@ -189,7 +189,7 @@
                 <dependency>
                     <groupId>com.github.spring-projects-experimental</groupId>
                     <artifactId>spring-graal-feature</artifactId>
-                    <version>0.8.5</version>
+                    <version>0.9.1</version>
                 </dependency>
             </dependencies>
             <build>
